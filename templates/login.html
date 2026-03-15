@@ -9,15 +9,19 @@
     <h1>NLP Page</h1>
 
     <h3>Login Here</h3>
+<!-- Python in HTML -->
+    {% if message %}
+        <p style="color: green;">{{message}}</p>
+    {% endif %}
 
-    <form action="">
+    <form action="/perform_login" method="post">
         <label>Email</label>
         <br>
-        <input type="email">
+        <input type="email" name="user_email">
         <br>
         <label>Password</label>
         <br>
-        <input type="password">
+        <input type="password" name="user_password">
         <br>
         <br>
         <input type="submit" value="Login">

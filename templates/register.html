@@ -9,6 +9,10 @@
     <h1>NLP Page</h1>
 
     <h3>Register Here</h3>
+    {% if message %}
+        <p style="color: red;">{{message}}</p>
+    {% endif %}
+
 <!-- Use post for confidential content -->
     <form action="/perform_registration" method="POST">
         <label >Name</label>
