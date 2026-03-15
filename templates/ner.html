@@ -1,0 +1,19 @@
+<h2>Named Entity Recognition</h2>
+
+<form action="/perform_ner" method="POST">
+    <textarea name="ner_text"></textarea>
+    <br>
+    <button type="submit">Analyze</button>
+</form>
+
+{% if entities %}
+
+<h3>Entities Found</h3>
+
+<ul>
+    {% for ent in entities %}
+    <li>{{ ent[0] }} → {{ ent[1] }}</li>
+    {% endfor %}
+</ul>
+
+{% endif %}
