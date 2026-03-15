@@ -1,5 +1,6 @@
 from flask import Flask,render_template,request,redirect
 from db import Database
+import api
 
 dbo = Database()
 
@@ -44,5 +45,9 @@ def profile():
 @app.route('/ner')
 def ner():
     return render_template('ner.html')
-@app.route('/perform_ner')
+@app.route('/perform_ner',methods=['POST'])
+def perform_ner():
+    text = request.form.get('ner_text')
+    entities = api.ner(text)
+    return render_template('ner.html', entities=entities, text=text)
 app.run(debug=True)
